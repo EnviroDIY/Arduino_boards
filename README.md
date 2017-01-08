@@ -1,6 +1,6 @@
 # EnviroDIY Arduino board files
 
-To add the EnviroDIY Mayfly board to your Arduino IDE, go to File > Preferences (or Arduino > Preferences on a Mac) and copy the following URL into the box labeled "Additional Boards Manager URLs":
+To add the EnviroDIY Mayfly board to your Arduino IDE, go to File > Preferences (for a Mac: Arduino > Preferences) and copy the following URL into the box labeled "Additional Boards Manager URLs":
 
 https://raw.githubusercontent.com/EnviroDIY/Arduino_boards/master/package_EnviroDIY_index.json
 
