@@ -4,33 +4,40 @@
 #include <avr/pgmspace.h>
 
 // ATMEL ATMEGA1284P
-// (Notice that EnviroDIY Mayfly is equiped with VQFN44 package. The layout below is
+// (Notice that EnviroDIY Mayfly is equiped with TQFN package. The layout below is
 // just a convenience to see the port names and their usage.)
-//                       +---\/---+
-//           (D 0) PB0  1|        |40  PA0 (AI 0 / D24)
-//           (D 1) PB1  2|        |39  PA1 (AI 1 / D25)
-//      INT2 (D 2) PB2  3|        |38  PA2 (AI 2 / D26)
-//       PWM (D 3) PB3  4|        |37  PA3 (AI 3 / D27)
-//    PWM/SS (D 4) PB4  5|        |36  PA4 (AI 4 / D28)
-//      MOSI (D 5) PB5  6|        |35  PA5 (AI 5 / D29)
-//  PWM/MISO (D 6) PB6  7|        |34  PA6 (AI 6 / D30)
-//   PWM/SCK (D 7) PB7  8|        |33  PA7 (AI 7 / D31)
-//                 RST  9|        |32  AREF
-//                 VCC 10|        |31  GND
-//                 GND 11|        |30  AVCC
-//               XTAL2 12|        |29  PC7 (D 23)
-//               XTAL1 13|        |28  PC6 (D 22)
-//      RX0 (D 8)  PD0 14|        |27  PC5 (D 21) TDI
-//      TX0 (D 9)  PD1 15|        |26  PC4 (D 20) TDO
-// RX1/INT0 (D 10) PD2 16|        |25  PC3 (D 19) TMS
-// TX1/INT1 (D 11) PD3 17|        |24  PC2 (D 18) TCK
-//      PWM (D 12) PD4 18|        |23  PC1 (D 17) SDA
-//      PWM (D 13) PD5 19|        |22  PC0 (D 16) SCL
-//      PWM (D 14) PD6 20|        |21  PD7 (D 15) PWM
-//                       +--------+
-
 //
-
+//                 |-----ICR BIT 1 (B)----|
+//                                RED  GREEN          |--ICR BIT 0 (A)--|
+//                                LED1 LED2           D24  D25  D26  D27
+//                 D12  D11  D10  D09  D08  GND  VCC  A00  A01  A02  A03
+// ____           _44___43___42___41___40___39___38___37___36___35___34_                   ____
+//  |        MOSI 1| *                                                   |33 A04/D28        |
+// ICR             |                                                     |                  |
+// BIT  MISO/OC3A 2|                                                     |32 A05/D29       ICR
+// 1(B)            |                                                     |                 BIT
+//__|__  SCK/OC3B 3|                                                     |31 A06/D30 BATT  0(A)
+//                 |                                                     |                  |
+//         RESET  4|                                                     |30 A07/D31      __|__
+//                 |                                                     |
+//           VCC  5|                                                     |29 AREF
+//           GND  6|                                                     |28 GND
+//         XTAL2  7|                                                     |27 AVCC
+//                 |                                                     |                      ____
+//         XTAL1  8|                                                     |26 D23 XBEE DTR        |
+//    ____         |                                                     |                       |
+//     |    RXD0  9|                                                     |25 D22 SWITCHED POWER ICR
+//    ICR          |                                                     |                      BIT
+//    BIT   TXD0 10|                                                     |24 D21                2(C)
+//    3(D)         |                                                     |                       |
+//   __|__  RXD1 11|_____________________________________________________|23 D20 XBEE RTS      __|__
+//                 12   13   14   15   16   17   18   19   20   21   22
+//                 TXD2 D04  D05  D06  D07  VCC  GND  SCL  SDA  TCK  TMS
+//                |-----ICR BIT 3 (D)----|                      D18  D19
+//                                                                   XBEE
+//                                                                   CTS
+//                                                   |--ICR BIT 0 (A)--|
+//
 /*
  * Arduino digital pin numbers:
  * 0..32
