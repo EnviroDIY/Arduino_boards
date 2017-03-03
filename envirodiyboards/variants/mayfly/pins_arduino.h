@@ -7,9 +7,9 @@
 // (Notice that EnviroDIY Mayfly is equiped with TQFN package. The layout below is
 // just a convenience to see the port names and their usage.)
 //
-//                 |-----ICR BIT 1 (B)----|
-//                                RED  GREEN          |--ICR BIT 0 (A)--|
-//                                LED1 LED2           D24  D25  D26  D27
+//                 |-----ICR BIT 1 (B)----|           |--ICR BIT 0 (A)--|
+//                 SD             RED  GREEN          |--Auxillary ADC--|
+//                CS/SS           LED1 LED2           D24  D25  D26  D27
 //                 D12  D11  D10  D09  D08  GND  VCC  A00  A01  A02  A03
 // ____           _44___43___42___41___40___39___38___37___36___35___34_                   ____
 //  |        MOSI 1| *                                                   |33 A04/D28        |
@@ -18,7 +18,7 @@
 // 1(B)            |                                                     |                 BIT
 //__|__  SCK/OC3B 3|                                                     |31 A06/D30 BATT  0(A)
 //                 |                                                     |                  |
-//         RESET  4|                                                     |30 A07/D31      __|__
+//         RESET  4|                                                     |30 A07/D31 RTC  __|__
 //                 |                                                     |
 //           VCC  5|                                                     |29 AREF
 //           GND  6|                                                     |28 GND
@@ -28,15 +28,15 @@
 //    ____         |                                                     |                       |
 //     |    RXD0  9|                                                     |25 D22 SWITCHED POWER ICR
 //    ICR          |                                                     |                      BIT
-//    BIT   TXD0 10|                                                     |24 D21                2(C)
+//    BIT   TXD0 10|                                                     |24 TDI D21 BUTTON     2(C)
 //    3(D)         |                                                     |                       |
-//   __|__  RXD1 11|_____________________________________________________|23 D20 XBEE RTS      __|__
+//   __|__  RXD1 11|_____________________________________________________|23 TDO D20 XBEE RTS  __|__
 //                 12   13   14   15   16   17   18   19   20   21   22
 //                 TXD2 D04  D05  D06  D07  VCC  GND  SCL  SDA  TCK  TMS
 //                |-----ICR BIT 3 (D)----|                      D18  D19
 //                                                                   XBEE
 //                                                                   CTS
-//                                                   |--ICR BIT 0 (A)--|
+//                                                   |--ICR BIT 2 (C)--|
 //
 /*
  * Arduino digital pin numbers:
