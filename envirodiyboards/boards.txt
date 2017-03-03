@@ -1,0 +1,23 @@
+##############################################################
+
+envirodiy_mayfly.name=EnviroDIY Mayfly 1284p 
+
+envirodiy_mayfly.upload.tool=arduino:avrdude
+envirodiy_mayfly.upload.protocol=arduino
+envirodiy_mayfly.upload.maximum_size=130048
+envirodiy_mayfly.upload.speed=57600
+
+envirodiy_mayfly.bootloader.tool=arduino:avrdude
+envirodiy_mayfly.bootloader.low_fuses=0xFF
+envirodiy_mayfly.bootloader.high_fuses=0xD6
+envirodiy_mayfly.bootloader.extended_fuses=0xFD
+#envirodiy_mayfly.bootloader.path=optiboot
+envirodiy_mayfly.bootloader.file=optiboot/optiboot_atmega1284p.hex
+envirodiy_mayfly.bootloader.unlock_bits=0x3F
+envirodiy_mayfly.bootloader.lock_bits=0x2F
+
+envirodiy_mayfly.build.mcu=atmega1284p
+envirodiy_mayfly.build.f_cpu=8000000L
+envirodiy_mayfly.build.core=arduino:arduino
+envirodiy_mayfly.build.variant=mayfly
+envirodiy_mayfly.build.board=AVR_ENVIRODIY_MAYFLY

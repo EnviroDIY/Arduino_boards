@@ -1,0 +1,27 @@
+git:
+  depth: 2
+env:
+  global:
+    secure: W5TRf1jplKG799EvrP4I0zoNNGIDgnUZ1MuHs37FYCVYDkwwPMgtGjKah9+dAyQd5XlZkyOGVNJORXbQzQHeBg4mkEhwaK9dGuGXajFLielkDTsXQSz0KmWjlw8RfPG6Wc1nanoA1WvkrlH4EwHr2bNXfA3JwFQqCskpoINFeY7e05iRTQu9OtBgMlNzNs7/2L3woVX12eat1IIzh27nFE2z9gwehZ1XblkBU8PpAD5Nb03qZRyqWHBhkRrYGKwDEGgnUIq+OKouTP3B40pdAOTnq5VNQX7Gj1W24yqTvfWnbGigzQC8LFUZIpqMfoPxm+9n2bVdiYDDGg+XOqxvTQCppnJki6URcF7TGlO1TeEvDS3DTFuqseo2aD/vpXOeWsOl5qQcbPHe+/wrCQrKwfSlEUsVc4482lA/82YO+7cPTkpu/xUD+XdXMXNqrlU6SNTTANVtdz4LAQcyXcAHppIXIpx8QpU3eGnwzG1ME3x3oRBxl4JCz08MOTKZhka14BzLzbYRPvbm3ha46lZrK98ZzVTUn+FKvIDcN5WJMTVd1JKbsOEGfrxju4qngdj0X4Hf1ORE6XRysxxWNOKF0qJzGed5XNJQipUjy+mGMz3JKvw9tHd4ZkVahFLTkFwak4dYYbKj4cLJb8dhP7AeVmNuvUjsjOmpzDrL9zZI3Z0=
+before_install:
+- openssl aes-256-cbc -k "$password" -in id_rsa.enc -out id_rsa -d
+- eval $(ssh-agent -s)
+- chmod 600 id_rsa
+- ssh-add id_rsa
+- git config --global user.email "sdamiano@stroudcenter.org"
+- git config --global user.name "SRGDamia1"
+- git config --global push.default simple
+install:
+- pip install git-archive-all
+script:
+- git clone --branch master --single-branch git@github.com:EnviroDIY/Arduino_boards.git
+  Boards
+- cd Boards
+- git remote rm origin
+- git remote add origin git@github.com:EnviroDIY/Arduino_boards.git
+- git checkout master
+# - zip -r envirodiyboards envirodiyboards
+# - sha256sum envirodiyboards.zip
+# - git add -A
+# - git commit -m "Updated board info and SHA checksums (Travis build $TRAVIS_BUILD_NUMBER) [ci skip]"
+# - git push origin master
