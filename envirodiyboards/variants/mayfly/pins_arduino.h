@@ -8,10 +8,10 @@
 // just a convenience to see the port names and their usage.)
 //
 //                 |-----ICR BIT 1 (B)----|           |--ICR BIT 0 (A)--|
-//                 SD             RED  GREEN          |--Auxillary ADC--|
+//                 SD             RED  GREEN          |--Processor ADC--|
 //                CS/SS           LED1 LED2           D24  D25  D26  D27
 //                 D12  D11  D10  D09  D08  GND  VCC  A00  A01  A02  A03
-// ____           _44___43___42___41___40___39___38___37___36___35___34_                   ____
+// ____            _44___43___42___41___40___39___38___37___36___35___34_                  ____
 //  |        MOSI 1| *                                                   |33 A04/D28        |
 // ICR             |                                                     |                  |
 // BIT  MISO/OC3A 2|                                                     |32 A05/D29       ICR
