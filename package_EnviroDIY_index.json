@@ -20,7 +20,7 @@
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/envirodiyboards.zip",
           "archiveFileName": "envirodiyboards.zip",
           "checksum": "SHA-256:A10BBCB6040BD305FB00BB848948B98CFBB38C652BCA7EB70C37BA858ADF08D0",
-          "size": "40960",
+          "size": "37178",
           "boards": [
             {"name": "EnviroDIY Mayfly 1284P"}
           ],

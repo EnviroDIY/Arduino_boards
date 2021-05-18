@@ -52,12 +52,18 @@ Temporary Items
 # PyCharm
 .idea/
 
-# Atom / PlatformIO
+# PlatformIO
+platformio.ini
+.pio
 .pioenvs
 .piolibdeps
 .clang_complete
 .gcc-flags.json
 lib/readme.txt
+
+# vscode
+.history
+.vscode
 
 # RSA Keys
 deploy_key.pub
