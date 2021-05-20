@@ -37,6 +37,23 @@
             }
           ]
         }
+        {
+          "name": "EnviroDIY ATmega Boards",
+          "architecture": "avr",
+          "version": "1.0.1",
+          "category": "Contributed",
+          "help": {
+            "online": "http://envirodiy.org/forums/"
+          },
+          "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/envirodiyboards-1.0.1.zip",
+          "archiveFileName": "envirodiyboards.zip",
+          "checksum": "SHA-256:7D3F804BF20AAAF521B22B631515C6FAF535FFE5A72E7D1FFDF8ECEEA5F2256F",
+          "size": "37330",
+          "boards": [
+            {"name": "EnviroDIY Mayfly 1284P"}
+          ],
+          "toolsDependencies": []
+        }
       ],
       "tools": []
     }
