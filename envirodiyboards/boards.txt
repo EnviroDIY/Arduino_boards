@@ -5,6 +5,7 @@ envirodiy_mayfly.name=EnviroDIY Mayfly 1284p
 envirodiy_mayfly.upload.tool=arduino:avrdude
 envirodiy_mayfly.upload.protocol=arduino
 envirodiy_mayfly.upload.maximum_size=130048
+envirodiy_mayfly.upload.maximum_data_size=16384
 envirodiy_mayfly.upload.speed=57600
 
 envirodiy_mayfly.bootloader.tool=arduino:avrdude
