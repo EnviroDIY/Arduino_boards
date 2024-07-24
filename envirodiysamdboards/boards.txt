@@ -1,0 +1,108 @@
+# Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+# based on Adafruit's board support package for SAMD boards, version 1.7.13
+
+menu.cache=Cache
+menu.speed=CPU Speed
+menu.opt=Optimize
+menu.maxqspi=Max QSPI
+menu.usbstack=USB Stack
+menu.debug=Debug
+
+
+# -----------------------------------
+# EnviroDIY Stonefly (SAMD51)
+# -----------------------------------
+stonefly_m4.name=EnviroDIY Stonefly
+
+# VID/PID for Bootloader, Arduino & CircuitPython
+stonefly_m4.vid.0=0x03EB
+stonefly_m4.pid.0=0x2402
+
+# Upload
+stonefly_m4.upload.tool=bossac18
+stonefly_m4.upload.protocol=sam-ba
+stonefly_m4.upload.maximum_size=507904
+stonefly_m4.upload.offset=0x4000
+stonefly_m4.upload.use_1200bps_touch=true
+stonefly_m4.upload.wait_for_upload_port=true
+stonefly_m4.upload.native_usb=true
+
+# Build
+stonefly_m4.build.mcu=cortex-m4
+stonefly_m4.build.f_cpu=120000000L
+stonefly_m4.build.usb_product="EnviroDIY Stonefly"
+stonefly_m4.build.usb_manufacturer="EnviroDIY"
+stonefly_m4.build.board=STONEFLY
+stonefly_m4.build.core=adafruit:arduino
+stonefly_m4.build.extra_flags=-D__SAMD51N19A__ -DENVIRODIY_STONEFLY_M4 -D__SAMD51__ -D__FPU_PRESENT -DARM_MATH_CM4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DENVIRODIY_STONEFLY {build.usb_flags}
+stonefly_m4.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+stonefly_m4.build.openocdscript=scripts/openocd/daplink_samd51.cfg
+stonefly_m4.build.variant=stonefly_m4
+stonefly_m4.build.variant_system_lib=
+stonefly_m4.build.vid=0x03EB
+stonefly_m4.build.pid=0x2402
+stonefly_m4.bootloader.tool=openocd
+stonefly_m4.bootloader.file=stonefly_m4/bootloader-stonefly_m4-v3.16.0.bin
+stonefly_m4.compiler.arm.cmsis.ldflags="-L{runtime.tools.CMSIS-5.4.0.path}/CMSIS/Lib/GCC/" "-L{build.variant.path}" -larm_cortexM4lf_math -mfloat-abi=hard -mfpu=fpv4-sp-d16
+
+# Menu: Cache (only for SAMD51/SAME51)
+stonefly_m4.menu.cache.on=Enabled
+stonefly_m4.menu.cache.on.build.cache_flags=-DENABLE_CACHE
+stonefly_m4.menu.cache.off=Disabled
+stonefly_m4.menu.cache.off.build.cache_flags=
+
+
+# Menu: Speed (only for SAMD51/SAME51)
+stonefly_m4.menu.speed.120=120 MHz (standard)
+stonefly_m4.menu.speed.120.build.f_cpu=120000000L
+stonefly_m4.menu.speed.150=150 MHz (overclock)
+stonefly_m4.menu.speed.150.build.f_cpu=150000000L
+stonefly_m4.menu.speed.180=180 MHz (overclock)
+stonefly_m4.menu.speed.180.build.f_cpu=180000000L
+stonefly_m4.menu.speed.200=200 MHz (overclock)
+stonefly_m4.menu.speed.200.build.f_cpu=200000000L
+
+
+
+# Menu: Optimization
+stonefly_m4.menu.opt.small=Small (-Os) (standard)
+stonefly_m4.menu.opt.small.build.flags.optimize=-Os
+stonefly_m4.menu.opt.fast=Fast (-O2)
+stonefly_m4.menu.opt.fast.build.flags.optimize=-O2
+stonefly_m4.menu.opt.faster=Faster (-O3)
+stonefly_m4.menu.opt.faster.build.flags.optimize=-O3
+stonefly_m4.menu.opt.fastest=Fastest (-Ofast)
+stonefly_m4.menu.opt.fastest.build.flags.optimize=-Ofast
+stonefly_m4.menu.opt.dragons=Here be dragons (-Ofast -funroll-loops)
+stonefly_m4.menu.opt.dragons.build.flags.optimize=-Ofast -funroll-loops
+
+# Menu: QSPI Speed
+stonefly_m4.menu.maxqspi.50=50 MHz (standard)
+stonefly_m4.menu.maxqspi.50.build.flags.maxqspi=-DVARIANT_QSPI_BAUD_DEFAULT=50000000
+stonefly_m4.menu.maxqspi.fcpu=CPU Speed / 2
+stonefly_m4.menu.maxqspi.fcpu.build.flags.maxqspi=-DVARIANT_QSPI_BAUD_DEFAULT=({build.f_cpu})
+
+# Menu: USB Stack
+stonefly_m4.menu.usbstack.arduino=Arduino
+stonefly_m4.menu.usbstack.tinyusb=TinyUSB
+stonefly_m4.menu.usbstack.tinyusb.build.flags.usbstack=-DUSE_TINYUSB
+
+# Menu: Debug
+stonefly_m4.menu.debug.off=Off
+stonefly_m4.menu.debug.on=On
+stonefly_m4.menu.debug.on.build.flags.debug=-g

@@ -6,7 +6,7 @@
       "websiteURL": "https://envirodiy.org",
       "email": "info@envirodiy.org",
       "help": {
-        "online": "http://envirodiy.org/forums/"
+        "online": "https://www.envirodiy.org/help/"
       },
       "platforms": [
         {
@@ -21,9 +21,7 @@
           "archiveFileName": "envirodiyboards.zip",
           "checksum": "SHA-256:A10BBCB6040BD305FB00BB848948B98CFBB38C652BCA7EB70C37BA858ADF08D0",
           "size": "37178",
-          "boards": [
-            {"name": "EnviroDIY Mayfly 1284P"}
-          ],
+          "boards": [{ "name": "EnviroDIY Mayfly 1284P" }],
           "toolsDependencies": [
             {
               "packager": "arduino",
@@ -49,8 +47,22 @@
           "archiveFileName": "envirodiyboards-1.0.1.zip",
           "checksum": "SHA-256:7D3F804BF20AAAF521B22B631515C6FAF535FFE5A72E7D1FFDF8ECEEA5F2256F",
           "size": "37330",
+          "boards": [{ "name": "EnviroDIY Mayfly 1284P" }],
+          "toolsDependencies": []
+        },
+        {
+          "name": "EnviroDIY SAMD Boards",
+          "architecture": "samd",
+          "version": "0.0.1",
+          "category": "Contributed",
+          "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/stonefly_m4-0.0.1.zip",
+          "archiveFileName": "stonefly_m4-0.0.1.zip",
+          "checksum": "SHA-256:3f14634b05eb42f749df3b6c7f72a0f947c83a8b50101200ef859dc1ed77ff41",
+          "size": 409507,
           "boards": [
-            {"name": "EnviroDIY Mayfly 1284P"}
+            {
+              "name": "EnviroDIY Stonefly"
+            }
           ],
           "toolsDependencies": []
         }
