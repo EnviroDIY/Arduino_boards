@@ -15,6 +15,8 @@ transport select swd
 # chip name
 set CHIPNAME samd51n19a
 
+set _FLASHDRIVER atsame5
+
 source [find target/atsame5x.cfg]
 
 
