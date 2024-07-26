@@ -76,8 +76,8 @@
       "category": "Contributed",
       "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnvoriDIYSAMDBoards/envirodiysamdboards-0.0.2.zip",
       "archiveFileName": "envirodiysamdboards-0.0.2.zip",
-      "checksum": "SHA-256:0687e815286974eeacf91f3755d296d1a4384149434bb73743157ee7b79c5ad5",
-      "size": 127522,
+      "checksum": "SHA-256:c1568feddcb4775bf4cf4d9b6b2bb6c17cfc905fc4dac4513c445dd0874c3b3a",
+      "size": 127970,
       "boards": [
         {
           "name": "EnviroDIY Stonefly"
