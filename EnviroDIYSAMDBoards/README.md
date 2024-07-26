@@ -1,7 +1,7 @@
 # Arduino board support package
 
 This package contains Arduino board support files for EnviroDIY Stonefly by EnviroDIY (https://www.envirodiy.org/).
-This package is version 0.0.1, built on 2024-07-24.
+This package is version 0.0.2, built on 2024-07-26.
 
 It relies on Adafruit's SAMD board support package; thus, users need to have that package installed. 
 Please see installation instructions here: https://learn.adafruit.com/add-boards-arduino-v164/setup
