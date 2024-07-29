@@ -29,7 +29,7 @@
   },
   "debug": {
     "jlink_device": "samd51n19a",
-    "write_platform_templates": "SAMD51N19A",
+    "openocd_chipname": "SAMD51N19A",
     "openocd_target": "atsame5x",
     "svd_path": "SAMD51N19A.svd"
   }
