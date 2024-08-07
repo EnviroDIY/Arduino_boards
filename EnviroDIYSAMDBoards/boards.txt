@@ -57,7 +57,7 @@ stonefly_m4.build.variant_system_lib=
 stonefly_m4.build.vid=0x03EB
 stonefly_m4.build.pid=0x2402
 stonefly_m4.bootloader.tool=openocd
-stonefly_m4.bootloader.file=stonefly_m4/bootloader-stonefly_m4-0.0.2-uf2v3.16.0.bin
+stonefly_m4.bootloader.file=stonefly_m4/bootloader-stonefly_m4-0.0.3-uf2v3.16.0.bin
 stonefly_m4.compiler.arm.cmsis.ldflags="-L{runtime.tools.CMSIS-5.4.0.path}/CMSIS/Lib/GCC/" "-L{build.variant.path}" -larm_cortexM4lf_math -mfloat-abi=hard -mfpu=fpv4-sp-d16
 
 # Menu: Cache (only for SAMD51/SAME51)

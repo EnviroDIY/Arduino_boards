@@ -20,7 +20,7 @@
 # https://arduino.github.io/arduino-cli/0.33/platform-specification/
 
 name=EnviroDIY SAMD Boards
-version=0.0.2
+version=0.0.3
 
 # Compile variables
 # -----------------
