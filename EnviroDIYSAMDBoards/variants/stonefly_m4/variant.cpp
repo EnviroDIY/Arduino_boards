@@ -69,7 +69,7 @@ const PinDescription g_APinDescription[] =
         // ----------------------
         {PORTC, 28, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_12}, // D13 LED Purple
 
-        // 14..15 - UART Bee
+        // 14..15 - UART Bee (Serial4)
         // --------------------
         {PORTB, 17, PIO_SERCOM, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1}, // D14 UART Bee RX SERCOM5/PAD[1]
         {PORTB, 16, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC6_CH0, TC6_CH0, EXTERNAL_INT_0},           // D15 UART Bee TX SERCOM5/PAD[0]
@@ -88,7 +88,7 @@ const PinDescription g_APinDescription[] =
         // ----------------------
         {PORTA, 10, PIO_SERCOM, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_10}, // D20 SPI (Flash) CS SERCOM0/PAD[2]
 
-        // 21..22 - Button, Power
+        // 21..22 - Button, Switched Power
         // ----------------------
         {PORTC, 1, PIO_DIGITAL, PIN_ATTR_ANALOG_ALT, ADC_Channel11, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1}, // D21 User Button
         {PORTA, 27, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11}, // D22 Switched 3.3V Enable
@@ -99,7 +99,7 @@ const PinDescription g_APinDescription[] =
         {PORTB, 2, PIO_DIGITAL, (PIN_ATTR_ANALOG | PIN_ATTR_PWM_E), ADC_Channel14, TC6_CH0, TC6_CH0, EXTERNAL_INT_2}, // D24 Bee Reset (Bee pin 5)
         {PORTB, 3, PIO_DIGITAL, (PIN_ATTR_ANALOG | PIN_ATTR_PWM_E), ADC_Channel15, TC6_CH1, TC6_CH1, EXTERNAL_INT_3}, // D25 Bee RTS (Bee pin 16)
 
-        // 26..27 - UART2 Feather Right
+        // 26..27 - UART2 Feather Right (Serial2)
         // --------------------
         {PORTA, 13, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC2_CH1, TC2_CH1, EXTERNAL_INT_13}, // D26 UART2 RX SERCOM2/PAD[1]
         {PORTA, 12, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC2_CH0, TC2_CH0, EXTERNAL_INT_12}, // D27 UART2 TX SERCOM2/PAD[0]
@@ -108,7 +108,7 @@ const PinDescription g_APinDescription[] =
         // ----------------------
         {PORTB, 15, PIO_DIGITAL, PIN_ATTR_PWM_F, No_ADC_Channel, TCC4_CH1, NOT_ON_TIMER, EXTERNAL_INT_15}, // D28 SD Card Detect
 
-        // 29 - SPI/SD Card Chip Select
+        // 29 - SPI/SD Card Chip Select (Slave Select)
         // ----------------------
         {PORTB, 11, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11}, // D29 SPI (SD card/other) CS SERCOM4/PAD[3]
 
@@ -216,6 +216,8 @@ SERCOM sercom6(SERCOM6);
 SERCOM sercom7(SERCOM7);
 
 // Serial1 (Grove) [SERCOM1]
+// Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX);
+// Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX, uint8_t _pinRTS, uint8_t _pinCTS);
 Uart Serial1(&SERCOM_SERIAL1, PIN_SERIAL1_RX, PIN_SERIAL1_TX, PAD_SERIAL1_RX, PAD_SERIAL1_TX);
 
 void SERCOM1_0_Handler()
@@ -236,6 +238,8 @@ void SERCOM1_3_Handler()
 }
 
 // Serial2 (Feather Wing Right) [SERCOM2]
+// Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX);
+// Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX, uint8_t _pinRTS, uint8_t _pinCTS);
 Uart Serial2(&SERCOM_SERIAL2, PIN_SERIAL2_RX, PIN_SERIAL2_TX, PAD_SERIAL2_RX, PAD_SERIAL2_TX);
 
 void SERCOM2_0_Handler()
@@ -256,6 +260,8 @@ void SERCOM2_3_Handler()
 }
 
 // Serial3 (Feather Wing Left) [SERCOM6]
+// Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX);
+// Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX, uint8_t _pinRTS, uint8_t _pinCTS);
 Uart Serial3(&SERCOM_SERIAL3, PIN_SERIAL3_RX, PIN_SERIAL3_TX, PAD_SERIAL3_RX, PAD_SERIAL3_TX);
 
 void SERCOM6_0_Handler()
@@ -276,6 +282,8 @@ void SERCOM6_3_Handler()
 }
 
 // Serial4 (Bee) [SERCOM5]
+// Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX);
+// Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX, uint8_t _pinRTS, uint8_t _pinCTS);
 Uart Serial4(&SERCOM_SERIAL4, PIN_SERIAL4_RX, PIN_SERIAL4_TX, PAD_SERIAL4_RX, PAD_SERIAL4_TX);
 
 void SERCOM5_0_Handler()

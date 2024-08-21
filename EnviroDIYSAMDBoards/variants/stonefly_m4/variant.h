@@ -149,14 +149,37 @@ extern "C"
     static const uint8_t DAC0 = PIN_DAC0;
     static const uint8_t DAC1 = PIN_DAC1;
 
-#define ADC_RESOLUTION 12
-
-// Other pins
-#define PIN_ATN (20) // Default Chip Select for SPI (See https://forum.arduino.cc/t/whats-the-purpose-of-the-new-atn-pin/318278)
-    static const uint8_t ATN = PIN_ATN;
-
-/*
+/**
  * Serial interfaces
+ *
+ * USART – Synchronous and Asynchronous Receiver and Transmitter
+ *
+ * UART Objects are created in variant.cpp using one of two constructors
+ *
+ * `Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX);`
+ * `Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX, uint8_t _pinRTS, uint8_t _pinCTS);`
+ *
+ * Rx Pad (`_padRX`) can be any pad (0-3) [CTLA.RXPO]
+ *
+ * - use one of `SERCOM_RX_PAD_0`, `SERCOM_RX_PAD_1`, `SERCOM_RX_PAD_2`, `SERCOM_RX_PAD_3`
+ *
+ *
+ * TX Pad (`_padTX`) Options on a SAMD21:
+ *
+ * - `UART_TX_PAD_0` (0x0) - Tx on pad 0, XKC (when available) on pad 1
+ * - `UART_TX_PAD_2` (0x1) - Tx on pad 2, XKC (when available) on pad 3
+ * - `UART_TX_RTS_CTS_PAD_0_2_3` (0x2) - Tx on Pad 0, RTS on pad 2, CTS on pad 3
+ *
+ *
+ * TX Pad (`_padTX`) Options on a SAMD/E51:
+ *
+ * @note The defines/enum values are not aligned with the proper values!
+ * @see https://github.com/adafruit/ArduinoCore-samd/issues/368
+ *
+ * - `UART_TX_PAD_0` (0x0) - Tx on pad 0, XKC (when available) on pad 1
+ * - `UART_TX_PAD_2` (0x1) - NOT VALID!
+ * - `UART_TX_RTS_CTS_PAD_0_2_3` (0x2) - Tx on Pad 0, RTS on pad 2, CTS on pad 3
+ * - (0x3) - Tx on Pad 0, XKC (when available) on pad 1, TE on pad 2
  */
 
 // Serial1 (Grove)
@@ -187,8 +210,55 @@ extern "C"
 #define PAD_SERIAL4_TX (UART_TX_PAD_0)
 #define PAD_SERIAL4_RX (SERCOM_RX_PAD_1)
 #define SERCOM_SERIAL4 sercom5
-/*
+
+/**
  * SPI Interfaces
+ *
+ * SPI – Serial Peripheral Interface (Host operation)
+ *
+ * @note SPI interfaces are created in libraries/SPI.cpp of the Adafruit Core based on the defines below
+ *
+ * Data In (MISO in host operation) can be any pad (0-3) [CTLA.DIPO], but the real available values depend on what is selected as Data Out.
+ *
+ * - define `PAD_SPI#_RX` as one of:
+ *   - `SERCOM_RX_PAD_0`
+ *   - `SERCOM_RX_PAD_1`
+ *   - `SERCOM_RX_PAD_2`
+ *   - `SERCOM_RX_PAD_3`
+ *
+ *
+ * TX Options on a SAMD21: [CTLA.DOPO]
+ *
+ * - define `PAD_SPI_TX` as one of:
+ *   - `SPI_PAD_0_SCK_1` (0x0) - Data Out (MOSI) on pad 0, SCK is on pad 1, Hardware SS is on pad 2 (Only pad 3 left for MISO)
+ *   - `SPI_PAD_2_SCK_3` (0x1) - Data Out (MOSI) on pad 2, SCK is on pad 3, Hardware SS is on pad 1 (Only pad 0 left for MISO)
+ *   - `SPI_PAD_3_SCK_1` (0x2) - Data Out (MOSI) on Pad 3, SCK is on pad 1, Hardware SS is on pad 2 (Only pad 0 left for MISO)
+ *   - `SPI_PAD_0_SCK_3` (0x3) - Data Out (MOSI) on Pad 0, SCK is on pad 3, Hardware SS is on pad 1 (Only pad 2 left for MISO)
+ *
+ *
+ * TX Options on a SAMD/E51: [CTLA.DOPO]
+ *
+ * - define `PAD_SPI_TX` as one of: *
+ *   - `SPI_PAD_0_SCK_1` (0x0) - Data Out (MOSI) on pad 0, SCK is on pad 1, Hardware SS is on pad 2 (Only pad 3 left for MISO)
+ *   - `SPI_PAD_3_SCK_1` (0x2) - Data Out (MOSI) on Pad 3, SCK is on pad 1, Hardware SS is on pad 2 (Only pad 0 left for MISO)
+ *   - `SPI_PAD_2_SCK_3` (0x1) and `SPI_PAD_0_SCK_3` (0x3) are NOT VALID on the SAMD/E 51!
+ *
+ * In the Adafruit core, hardware SS (slave select) is used by default.
+ * This means that the SS pin must be the specified pad on the SERCOM restricting you to using only the single slave attachted to that SS pin.
+ *
+ * If you want to use multiple slaves on the same bus, you can disable hardware SPI select.
+ * Doing this allows you to use any GPIO pin(s) as the SS pin(s), and requires you to manually set that pin low before communicating with the desired slave.
+ * To emulate the functionality of the hardware SS with a manual SS pin, you should drive the SS pin low for a minimum of one baud cycle before transmission begins, and stays low for a minimum of one baud cycle after transmission completes.
+ *
+ * To disable hardware slave select, you must add the following code (applies to SAMD21 and 51):
+ * ```cpp
+ * # include "wiring_private.h"  // pinPeripheral() function
+ * // Set the CTRLB register
+ * SERCOM#->SPI.CTRLB.bit.MSSEN = 0; // Disable MSSEN
+ * while( SERCOM#->SPI.SYNCBUSY.bit.CTRLB == 1 );  // not required, the MSSEN bit is not synchronized
+ * // Set the pin periperhal of the SS pin to DIO (just in case it had been PIO_SERCOM or PIO_SERCOM_ALT)
+ * pinPeripheral( ss_pin_number, PIO_DIGITAL);
+ * ```
  */
 #define SPI_INTERFACES_COUNT 2
 
@@ -198,8 +268,7 @@ extern "C"
 #define PIN_SPI_SCK (34)  // PB13 SERCOM4/PAD[1]
 #define PIN_SPI_SS (29)   // PB11 SERCOM4/PAD[3] [ALT!]
 #define PERIPH_SPI sercom4
-// MOSI - Tx - Main Out, Sub In (master out, slave in)
-// Set both the MOSI pad and the SCK pad here!
+// Set the entire Tx config here
 #define PAD_SPI_TX SPI_PAD_0_SCK_1
 // MISO - Rx - Main In, Sub Out (master in, slave out)
 #define PAD_SPI_RX SERCOM_RX_PAD_2
@@ -215,6 +284,10 @@ extern "C"
 #define SDCARD_MOSI_PIN PIN_SPI_MOSI
 #define SDCARD_SCK_PIN PIN_SPI_SCK
 #define SDCARD_SS_PIN PIN_SPI_SS
+
+// Other pins
+#define PIN_ATN (PIN_SPI_SS) // Default Chip Select for SPI (See https://forum.arduino.cc/t/whats-the-purpose-of-the-new-atn-pin/318278)
+    static const uint8_t ATN = PIN_ATN;
 
 // Flash SPI
 #define PIN_SPI1_MISO (44) // PA11 SERCOM0/PAD[3]
@@ -233,8 +306,20 @@ extern "C"
     static const uint8_t MISO1 = PIN_SPI1_MISO;
     static const uint8_t SCK1 = PIN_SPI1_SCK;
 
-/*
+/**
  * Wire (I2C) Interfaces
+ *
+ * I2C – Inter-Integrated Circuit (Host operation)
+ *
+ * @note I2C interfaces are created in libraries/Wire.cpp of the Adafruit Core based on the defines below
+ *
+ * @warning The SERCOM pads used for SCL and SDA are **not configurable**.
+ * SDA must be on pad 0, SCL must be on pad 1!
+ * In 4 wire setup, SDA_OUT must be on pad 2 and SCL_OUT must be on pad 3.
+ *
+ * `WIRE_IT_HANDLER` is used by the SAMD21
+ * `WIRE_IT_HANDLER_0` -> `WIRE_IT_HANDLER_3` are used by the SAMD/E51
+ *
  */
 #define WIRE_INTERFACES_COUNT 1
 
@@ -250,14 +335,25 @@ extern "C"
     static const uint8_t SDA = PIN_WIRE_SDA;
     static const uint8_t SCL = PIN_WIRE_SCL;
 
-/*
+/**
  * USB
+ *
+ * @note The USB interface is created in SAMD21_USB.cpp of the Adafruit Core based on the defines below.
+ * The SAMD21 file is used by both the SAMD21 and the SAMD51.
+ *
+ * These defines are required:
+ *
+ * ```cpp
+ * #define PIN_USB_HOST_ENABLE (#) // Pin controlling power (VBUS) on the USB port
+ * #define PIN_USB_DM (#)          // USB data minus
+ * #define PIN_USB_DP (#)          // USB data plus
+ * ```
  */
 #define PIN_USB_HOST_ENABLE (79) // Not in use on Stonefly, but must be defined
 #define PIN_USB_DM (77)          // PA24
 #define PIN_USB_DP (78)          // PA25
 
-/*
+/**
  * I2S Interfaces - not used on the Stonefly
  * The Inter-IC Sound Controller provides a bidirectional, synchronous digital audio link
  * with external audio devices.
