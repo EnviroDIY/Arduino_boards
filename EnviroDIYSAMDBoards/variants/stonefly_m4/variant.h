@@ -263,15 +263,20 @@ extern "C"
 #define SPI_INTERFACES_COUNT 2
 
 // SD Card SPI
-#define PIN_SPI_MISO (35) // PB14 SERCOM4/PAD[2]
-#define PIN_SPI_MOSI (33) // PB12 SERCOM4/PAD[0]
-#define PIN_SPI_SCK (34)  // PB13 SERCOM4/PAD[1]
-#define PIN_SPI_SS (29)   // PB11 SERCOM4/PAD[3] [ALT!]
+#define PIN_SPI_MOSI (33) // D33 PB12 SPI MOSI SERCOM4/PAD[0]
+#define PIN_SPI_SCK (34)  // D34 PB13 SPI SCK SERCOM4/PAD[1]
+#define PIN_SPI_MISO (35) // D35 PB14 SPI MISO SERCOM4/PAD[2]
+                          // WARNING: This is not a valid configuration for hardware controlled SS [PIO_SERCOM(_ALT)]!
+                          // For hardware SS (enabled in Adafruit core by default) MISO must be on pad 3 if MOSI is on pad 0
+#define PIN_SPI_SS (29)   // D29 PB11 SPI (SD card/other) CS SERCOM4/PAD[3] [ALT!!]
+                          // WARNING: This is not a valid configuration for hardware controlled SS [PIO_SERCOM(_ALT)]!
+                          // For hardware SS (enabled in Adafruit core by default) the SS must be on pad 2
 #define PERIPH_SPI sercom4
 // Set the entire Tx config here
-#define PAD_SPI_TX SPI_PAD_0_SCK_1
+#define PAD_SPI_TX SPI_PAD_0_SCK_1 // Data Out (MOSI) on pad 0, SCK is on pad 1, Hardware SS is on pad 2 (Only pad 3 left for MISO)
 // MISO - Rx - Main In, Sub Out (master in, slave out)
-#define PAD_SPI_RX SERCOM_RX_PAD_2
+#define PAD_SPI_RX SERCOM_RX_PAD_2 // MISO is on pad 2
+                                   // WARNING: the wiring of SERCOM4 for SPI is incorrect!!
 
     static const uint8_t SS = PIN_SPI_SS;
     static const uint8_t MOSI = PIN_SPI_MOSI;
@@ -290,16 +295,16 @@ extern "C"
     static const uint8_t ATN = PIN_ATN;
 
 // Flash SPI
-#define PIN_SPI1_MISO (44) // PA11 SERCOM0/PAD[3]
-#define PIN_SPI1_MOSI (42) // PA08 SERCOM0/PAD[0]
-#define PIN_SPI1_SCK (43)  // PA09 SERCOM0/PAD[1]
-#define PIN_SPI1_SS (20)   // PA10 SERCOM0/PAD[2]
+#define PIN_SPI1_MOSI (42) // D42 PA08 SPI MOSI SERCOM0/PAD[0]
+#define PIN_SPI1_SCK (43)  // D43 PA09 SPI SCK SERCOM0/PAD[1]
+#define PIN_SPI1_SS (20)   // D20 PA10 SPI (Flash) CS SERCOM0/PAD[2]
+#define PIN_SPI1_MISO (44) // D44 PA11 SPI MISO SERCOM0/PAD[3]
 #define PERIPH_SPI1 sercom0
 // MOSI - Tx - Main Out, Sub In (master out, slave in)
 // Set both the MOSI pad and the SCK pad here!
-#define PAD_SPI1_TX SPI_PAD_3_SCK_1
+#define PAD_SPI1_TX SPI_PAD_0_SCK_1 // (0x0) - Data Out (MOSI) on pad 0, SCK is on pad 1, Hardware SS is on pad 2 (Only pad 3 left for MISO)
 // MISO - Rx - Main In, Sub Out (master in, slave out)
-#define PAD_SPI1_RX SERCOM_RX_PAD_0
+#define PAD_SPI1_RX SERCOM_RX_PAD_3
 
     static const uint8_t SS1 = PIN_SPI1_SS;
     static const uint8_t MOSI1 = PIN_SPI1_MOSI;

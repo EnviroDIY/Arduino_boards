@@ -109,10 +109,15 @@ const PinDescription g_APinDescription[] =
         {PORTB, 15, PIO_DIGITAL, PIN_ATTR_PWM_F, No_ADC_Channel, TCC4_CH1, NOT_ON_TIMER, EXTERNAL_INT_15}, // D28 SD Card Detect
 
         // 29 - SPI/SD Card Chip Select (Slave Select)
+        // WARNING: This is not a valid configuration for hardware controlled SS PIO_SERCOM_ALT!
+        // For hardware SS (enabled in Adafruit core by default) the SS must be on pad 2
+        // D29 SERCOM4/PAD[3](ALT) should be connected to USB Pin 7/MISO NOT USB Pin 2/SS
+        // D29 also has an external pull-up
         // ----------------------
-        {PORTB, 11, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11}, // D29 SPI (SD card/other) CS SERCOM4/PAD[3]
+        // {PORTB, 11, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11}, // D29 SPI (SD card/other) CS SERCOM4/PAD[3]
+        {PORTB, 11, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11}, // D29 SPI (SD card/other) CS SERCOM4/PAD[3]
 
-        // 30..32 - SD Card
+        // 30..32 - SD Card LED's and Card Detect
         // ----------------------
         {PORTC, 10, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_10}, // D30 SD Card LED Green
         {PORTC, 11, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11}, // D31 SD Card LED Red
@@ -120,9 +125,12 @@ const PinDescription g_APinDescription[] =
 
         // 33..35 - SPI SD Card
         // ----------------------
+        // NOTE: D35 SERCOM4/PAD[2] should be connected to USB Pin 2/SS NOT USB Pin 7/MISO
+        // NOTE: MicroChip recommends a pull up on the MISO pin:
+        // https://onlinedocs.microchip.com/pr/GUID-B1E02937-05D4-4A7D-AC5A-9911C35B7ABA-en-US-4/index.html?GUID-DC20BF1C-729C-410B-B9C9-EDB7F2CD86E2
         {PORTB, 12, PIO_SERCOM, PIN_ATTR_PWM_F, No_ADC_Channel, TCC3_CH0, NOT_ON_TIMER, EXTERNAL_INT_12}, // D33 SPI MOSI SERCOM4/PAD[0]
         {PORTB, 13, PIO_SERCOM, PIN_ATTR_PWM_F, No_ADC_Channel, TCC3_CH1, NOT_ON_TIMER, EXTERNAL_INT_13}, // D34 SPI SCK SERCOM4/PAD[1]
-        {PORTB, 14, PIO_SERCOM, PIN_ATTR_PWM_F, No_ADC_Channel, TCC4_CH0, NOT_ON_TIMER, EXTERNAL_INT_14}, // D35 SPI MISO SERCOM4/PAD[2]
+        {PORTB, 14, PIO_SERCOM, PIN_ATTR_PWM_F, No_ADC_Channel, TCC4_CH0, NOT_ON_TIMER, EXTERNAL_INT_14}, // D35 SPI ~MISO~ SERCOM4/PAD[2]
 
         // 36..37 - UART3 Feather Left
         // --------------------
