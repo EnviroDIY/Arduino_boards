@@ -3,7 +3,7 @@
     {
       "name": "EnviroDIY",
       "maintainer": "Stroud Water Research Center - EnviroDIY",
-      "websiteURL": "https://envirodiy.org",
+      "websiteURL": "https://www.envirodiy.org/",
       "email": "info@envirodiy.org",
       "help": {
         "online": "https://www.envirodiy.org/help/"
@@ -104,9 +104,9 @@
           "version": "0.0.4",
           "category": "Contributed",
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.0.4.zip",
-          "archiveFileName": "stonefly_m4-0.0.4.zip",
-          "checksum": "SHA-256:f799d2740a0f8b2bcc2655c0792053b47a814d9482b4c31440aad0b25c7cf8d5",
-          "size": 130396,
+          "archiveFileName": "envirodiysamdboards-0.0.4.zip",
+          "checksum": "SHA-256:52c8879c306a4358db6f1e7921ba376417d5df5d1b7862c37c941cac0e734d89",
+          "size": 130408,
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
