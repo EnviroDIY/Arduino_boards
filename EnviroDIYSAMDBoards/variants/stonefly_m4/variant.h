@@ -16,8 +16,10 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _VARIANT_STONEFLY_M4_
-#define _VARIANT_STONEFLY_M4_
+// clang-format off
+#ifndef _VARIANT_STONEFLY_
+#define _VARIANT_STONEFLY_
+// clang-format on
 
 // The definitions here needs a SAMD core >=1.6.10
 #define ARDUINO_SAMD_VARIANT_COMPLIANCE 10610
@@ -53,10 +55,12 @@ extern "C"
 {
 #endif // __cplusplus
 
-/*----------------------------------------------------------------------------
- *        Version Information
- *----------------------------------------------------------------------------*/
-
+    /*----------------------------------------------------------------------------
+     *        Version Information
+     *
+     * Don't change this; it is used as a template!
+     *----------------------------------------------------------------------------*/
+    // clang-format off
 /** Major version number (X.x.x) */
 #define STONEFLY_VERSION_MAJOR 0
 /** Minor version number (x.X.x) */
@@ -79,6 +83,7 @@ extern "C"
 #define STONEFLY_VERSION STONEFLY_VERSION_VAL(STONEFLY_VERSION_MAJOR, \
                                               STONEFLY_VERSION_MINOR, \
                                               STONEFLY_VERSION_PATCH)
+// clang-format on
 
 /*----------------------------------------------------------------------------
  *        Pins
@@ -548,6 +553,6 @@ static const uint8_t BATVOLTPIN = 75; // A9
 #define BATVOLT_R1 47                 // in fact 4.7M
 #define BATVOLT_R2 100                // in fact 10M
 
-#endif /* _VARIANT_STONEFLY_M4_ */
+#endif /* _VARIANT_STONEFLY_ */
 
 // cSpell:words RXPO DIPO DOPO MSSEN SYNCBUSY PERIPH XCLK LINUXBRIDGE
