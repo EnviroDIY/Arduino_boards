@@ -242,9 +242,9 @@ extern "C"
  */
 
 // Serial1 (Bee)
-#define PIN_SERIAL1_RX (27) // PB17 SERCOM5/PAD[1]
+#define PIN_SERIAL1_RX (14) // PB17 SERCOM5/PAD[1]
 // ^ Can be any pad (0-3) on a SAMD51 or SAMD21
-#define PIN_SERIAL1_TX (28) // PB16 SERCOM5/PAD[0]
+#define PIN_SERIAL1_TX (15) // PB16 SERCOM5/PAD[0]
 // ^ Must always be pad 0
 #define PAD_SERIAL1_TX (UART_TX_PAD_0)
 #define PAD_SERIAL1_RX (SERCOM_RX_PAD_1)
@@ -325,13 +325,13 @@ extern "C"
 #define SPI_INTERFACES_COUNT 1
 
 // SD Card SPI
-#define PIN_SPI_MOSI (33) // D33 PB12 SPI MOSI SERCOM4/PAD[0]
+#define PIN_SPI_MOSI (33) // PB12 SPI MOSI SERCOM4/PAD[0]
 // ^ Digital pin for SPI Data Out (MOSI as host, MISO as client) can be pad 0 or 3 on a SAMD51 or 0, 2, or 3 on a SAMD21
-#define PIN_SPI_SCK (34) // D34 PB13 SPI SCK SERCOM4/PAD[1]
+#define PIN_SPI_SCK (34) // PB13 SPI SCK SERCOM4/PAD[1]
 // ^ Digital pin for SPI SCK must be pad 1 on a SAMD51 or 1 or 3 on a SAMD21
-#define PIN_SPI_SS (35) // D35 PB11 SPI (SD card/other) CS SERCOM4/PAD[2]
+#define PIN_SPI_SS (35) // PB14 SPI (SD card/other) CS SERCOM4/PAD[2]
 // ^ Digital pin for SPI CS must always be pad 2
-#define PIN_SPI_MISO (32) // D32 PB15 SPI MISO SERCOM4/PAD[3]
+#define PIN_SPI_MISO (32) // PB15 SPI MISO SERCOM4/PAD[3]
 // ^ Digital pin for SPI MISO SERCOM4/PAD[3]
 #define PERIPH_SPI sercom4
 // ^ the SERCOM instance used for this SPI interface (e.g. sercom0, sercom1, etc.)
@@ -375,9 +375,9 @@ extern "C"
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA (30) // PA22 SERCOM3/PAD[0]
+#define PIN_WIRE_SDA (17) // PA22 SERCOM3/PAD[0]
 // ^ Digital pin for I2C Data (SDA) must be pad 0 on a SAMD51 or SAMD21
-#define PIN_WIRE_SCL (29) // PA23 SERCOM3/PAD[1]
+#define PIN_WIRE_SCL (16) // PA23 SERCOM3/PAD[1]
 // ^ Digital pin for I2C Clock (SCL) must be pad 1 on a SAMD51 or SAMD21
 #define PERIPH_WIRE sercom3
 // ^ the SERCOM instance used for this I2C interface (e.g. sercom0, sercom1, etc.)
@@ -454,7 +454,6 @@ extern "C"
 #define PIN_PCC_DEN1 (65) // PA12
 #define PIN_PCC_DEN2 (66) // PA13
 #define PIN_PCC_CLK (31)  // PA14
-#define PIN_PCC_XCLK (29) // ??
 #define PIN_PCC_D0 (1)    // PA16
 #define PIN_PCC_D1 (0)    // PA17
 #define PIN_PCC_D2 (51)   // PA18
@@ -538,7 +537,8 @@ static const uint8_t BEETX = PIN_SERIAL1_TX;
 static const uint8_t BEEDTR = 23;
 static const uint8_t BEERTS = 20;
 static const uint8_t BEECTS = 19;
-static const uint8_t BEERESET = 24;
+static const uint8_t BEESTATUS = 28;
+static const uint8_t BEERESET = 29;
 
 static const uint8_t GROVEPWR = 22;
 static const uint8_t GROVEPWR_OFF = 0;

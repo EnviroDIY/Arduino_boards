@@ -58,19 +58,19 @@ const PinDescription g_APinDescription[] =
         {PORTA, 20, PIO_DIGITAL, PIN_ATTR_PWM_E, No_ADC_Channel, TC7_CH0, TC7_CH0, EXTERNAL_INT_4}, // D10 GPIO Digital Feather Left
         {PORTA, 21, PIO_DIGITAL, PIN_ATTR_PWM_E, No_ADC_Channel, TC7_CH1, TC7_CH1, EXTERNAL_INT_5}, // D11 GPIO Digital Feather Left
 
-        // 12 - 12V power control
+        // 12 - 12V power control (optional)
         {PORTB, 22, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_6}, // D12 GPIO Digital Power Enable 12V Regulator (optional)
 
         // 13 - LED
         {PORTC, 28, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_12}, // D13 LED Orange
 
-        // 14..15 - SD Card LED's
-        {PORTC, 10, PIO_DIGITAL, PIN_ATTR_PWM_F, No_ADC_Channel, TCC0_CH0, TCC0_CH0, EXTERNAL_INT_10}, // D14 SD Card LED Green
-        {PORTC, 11, PIO_DIGITAL, PIN_ATTR_PWM_F, No_ADC_Channel, TCC0_CH1, TCC0_CH1, EXTERNAL_INT_11}, // D15 SD Card LED Red
+        // 14..15 - UART Bee (Serial1)
+        {PORTB, 17, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC6_CH1, TC6_CH1, EXTERNAL_INT_1}, // D14 UART1 Bee RX SERCOM5/PAD[1]
+        {PORTB, 16, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC6_CH0, TC6_CH0, EXTERNAL_INT_0}, // D15 UART1 Bee Tx SERCOM5/PAD[0]
 
-        // 16..17 - Feather Power Enables
-        {PORTC, 7, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_9}, // D16 GPIO Digital Power Enable Feather Left
-        {PORTC, 3, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3}, // D17 GPIO Digital Power Enable Feather Right
+        // 16..17 - I2C pins (SDA/SCL)
+        {PORTA, 23, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC4_CH1, TC4_CH1, EXTERNAL_INT_7}, // D16 I2C SCL SERCOM3/PAD[1]
+        {PORTA, 22, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC4_CH0, TC4_CH0, EXTERNAL_INT_6}, // D17 I2C SDA SERCOM3/PAD[0]
 
         // 18..20 - Bee Header
         {PORTB, 31, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_15},        // D18 GPIO Digital Power Enable Bee
@@ -81,19 +81,23 @@ const PinDescription g_APinDescription[] =
         {PORTC, 1, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1},   // D21 GPIO Digital Input User Button
         {PORTA, 27, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11}, // D22 GPIO Digital Power Enable 3.3V Regulator (optionally 5V and 12V)
 
-        // 23..26 - Bee Header
+        // 23 - Bee Header
         {PORTB, 1, PIO_DIGITAL, (PIN_ATTR_ANALOG | PIN_ATTR_PWM_E), ADC_Channel13, TC7_CH1, TC7_CH1, EXTERNAL_INT_1}, // D23 GPIO Digital Bee DTR/SLEEP (Bee pin 9)
-        {PORTB, 2, PIO_DIGITAL, (PIN_ATTR_ANALOG | PIN_ATTR_PWM_E), ADC_Channel14, TC6_CH0, TC6_CH0, EXTERNAL_INT_2}, // D24 GPIO Digital Bee Reset (Bee pin 5)
-        {PORTC, 2, PIO_DIGITAL, PIN_ATTR_ANALOG_ALT, ADC_Channel4, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2},         // D25 GPIO Digital Bee STATUS/DIO9 (Bee pin 13)
-        {PORTC, 0, PIO_DIGITAL, PIN_ATTR_ANALOG_ALT, ADC_Channel10, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_0},        // D26 GPIO Digital Bee RI (Bee Pin 20)
 
-        // 27..28 - UART Bee (Serial1)
-        {PORTB, 17, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC6_CH1, TC6_CH1, EXTERNAL_INT_1}, // D27 UART1 Bee RX SERCOM5/PAD[1]
-        {PORTB, 16, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC6_CH0, TC6_CH0, EXTERNAL_INT_0}, // D28 UART1 Bee Tx SERCOM5/PAD[0]
+        // 24..25 - SD Card LED's
+        {PORTC, 10, PIO_DIGITAL, PIN_ATTR_PWM_F, No_ADC_Channel, TCC0_CH0, TCC0_CH0, EXTERNAL_INT_10}, // D24 SD Card LED Green
+        {PORTC, 11, PIO_DIGITAL, PIN_ATTR_PWM_F, No_ADC_Channel, TCC0_CH1, TCC0_CH1, EXTERNAL_INT_11}, // D25 SD Card LED Red
 
-        // 29..30 - I2C pins (SDA/SCL)
-        {PORTA, 23, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC4_CH1, TC4_CH1, EXTERNAL_INT_7}, // D29 I2C SCL SERCOM3/PAD[1]
-        {PORTA, 22, PIO_SERCOM, PIN_ATTR_PWM_E, No_ADC_Channel, TC4_CH0, TC4_CH0, EXTERNAL_INT_6}, // D30 I2C SDA SERCOM3/PAD[0]
+        // 26 - 5V power control (optional)
+        {PORTB, 25, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_9}, // D26 GPIO Digital Power Enable 5V Regulator (optional)
+
+        // 27..29 - Bee Header
+        {PORTC, 0, PIO_DIGITAL, PIN_ATTR_ANALOG_ALT, ADC_Channel10, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_0},        // D27 GPIO Digital Bee RI (Bee Pin 20)
+        {PORTC, 2, PIO_DIGITAL, PIN_ATTR_ANALOG_ALT, ADC_Channel4, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2},         // D28 GPIO Digital Bee STATUS/DIO9 (Bee pin 13)
+        {PORTB, 2, PIO_DIGITAL, (PIN_ATTR_ANALOG | PIN_ATTR_PWM_E), ADC_Channel14, TC6_CH0, TC6_CH0, EXTERNAL_INT_2}, // D29 GPIO Digital Bee Reset (Bee pin 5)
+
+        // 30 - Feather Left Power Enable
+        {PORTC, 7, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_9}, // D30 GPIO Digital Power Enable Feather Left
 
         // 31 - RTC Interrupt
         {PORTA, 14, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14}, // D31 GPIO Digital Input RTC Alert
@@ -108,8 +112,8 @@ const PinDescription g_APinDescription[] =
         {PORTC, 17, PIO_SERCOM, PIN_ATTR_PWM_F, No_ADC_Channel, TCC0_CH1, TCC0_CH1, EXTERNAL_INT_1}, // D36 UART4 RX SERCOM6/PAD[1] (Feather Right)
         {PORTC, 16, PIO_SERCOM, PIN_ATTR_PWM_F, No_ADC_Channel, TCC0_CH0, TCC0_CH0, EXTERNAL_INT_0}, // D37 UART4 TX SERCOM6/PAD[0] (Feather Right)
 
-        // 38 - 5V power control
-        {PORTB, 25, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_9}, // D38 GPIO Digital Power Enable 5V Regulator (optional)
+        // 38 - Feather Right Power Enable
+        {PORTC, 3, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3}, // D38 GPIO Digital Power Enable Feather Right
 
         // 39..44 - External Flash QSPI
         {PORTB, 10, PIO_COM, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_10}, // D39 QSPI (Flash) SCK
