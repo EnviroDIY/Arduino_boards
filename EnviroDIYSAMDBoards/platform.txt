@@ -20,9 +20,9 @@
 # https://arduino.github.io/arduino-cli/0.33/platform-specification/
 
 name=EnviroDIY SAMD Boards
-version=0.0.4
+version=0.3.7
 
-# Compile variables
+# SAMD compile variables
 # -----------------
 
 compiler.warning_flags=-Werror=return-type
@@ -52,7 +52,7 @@ compiler.size.cmd=arm-none-eabi-size
 compiler.define=-DARDUINO=
 compiler.readelf.cmd=arm-none-eabi-readelf
 
-# this can be overriden in boards.txt
+# This can be overridden in boards.txt
 build.extra_flags=
 build.cache_flags=
 build.flags.optimize=
@@ -75,19 +75,8 @@ compiler.arm.cmsis.ldflags="-L{runtime.tools.CMSIS-5.4.0.path}/CMSIS/Lib/GCC/" -
 
 compiler.libraries.ldflags=
 
-# USB Flags
-# ---------
-build.usb_flags=-DUSB_VID={build.vid} -DUSB_PID={build.pid} -DUSBCON -DUSB_CONFIG_POWER={build.usb_power} '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}' {build.flags.usbstack} {build.flags.debug} "-I{runtime.platform.path}/libraries/Adafruit_TinyUSB_Arduino/src/arduino"
 
-# Default advertised device power setting in mA
-build.usb_power=100
-
-# Default usb manufacturer will be replaced at compile time using
-# numeric vendor ID if available or by board's specific value.
-build.usb_manufacturer="Unknown"
-
-
-# Compile patterns
+# SAMD compile patterns
 # ----------------
 
 ## Compile c files
@@ -246,3 +235,14 @@ debug.server.openocd.script={runtime.platform.path}/{build.openocdscript}
 #debug.server.jlink.path=JLinkGDBServer
 #debug.server.jlink.device={build.variant}
 #debug.server.jlink.script={runtime.platform.path}/{build.openocdscript}
+
+# USB Flags
+# ------------------------------
+# Default advertised device power setting in mA
+build.usb_power=100
+
+# Default usb manufacturer will be replaced at compile time using
+# numeric vendor ID if available or by board's specific value.
+build.usb_manufacturer="Unknown"
+
+build.usb_flags=-DUSB_VID={build.vid} -DUSB_PID={build.pid} -DUSBCON -DUSB_CONFIG_POWER={build.usb_power} '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}' {build.flags.usbstack} {build.flags.debug} "-I{runtime.platform.path}/libraries/Adafruit_TinyUSB_Arduino/src/arduino"
