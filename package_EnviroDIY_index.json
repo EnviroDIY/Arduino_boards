@@ -145,8 +145,8 @@
           "category": "Contributed",
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.0.0.zip",
           "archiveFileName": "envirodiyatmegaboards-2.0.0.zip",
-          "checksum": "SHA-256:133a6c0a25f1f7d7bed3a23e936ce1f149e7aeb4becc32fb2f0f5ef398ca93e3",
-          "size": 41794,
+          "checksum": "SHA-256:dbc21396c3cd85579efecc2d32b2a1a597194fbfbd5cfda4be1dc43ccc850f61",
+          "size": 41840,
           "boards": [
             {
               "name": "EnviroDIY Mayfly 1284p"
