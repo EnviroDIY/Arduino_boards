@@ -21,7 +21,11 @@
           "archiveFileName": "envirodiyavrboards-1.0.0.zip",
           "checksum": "SHA-256:A10BBCB6040BD305FB00BB848948B98CFBB38C652BCA7EB70C37BA858ADF08D0",
           "size": "37178",
-          "boards": [{ "name": "EnviroDIY Mayfly 1284P" }],
+          "boards": [
+            {
+              "name": "EnviroDIY Mayfly 1284P"
+            }
+          ],
           "toolsDependencies": [
             {
               "packager": "arduino",
@@ -47,7 +51,11 @@
           "archiveFileName": "envirodiyavrboards-1.0.1.zip",
           "checksum": "SHA-256:7D3F804BF20AAAF521B22B631515C6FAF535FFE5A72E7D1FFDF8ECEEA5F2256F",
           "size": "37330",
-          "boards": [{ "name": "EnviroDIY Mayfly 1284P" }],
+          "boards": [
+            {
+              "name": "EnviroDIY Mayfly 1284P"
+            }
+          ],
           "toolsDependencies": []
         },
         {
@@ -126,6 +134,22 @@
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
+            }
+          ],
+          "toolsDependencies": []
+        },
+        {
+          "name": "EnviroDIY ATmega Boards",
+          "architecture": "avr",
+          "version": "2.0.0",
+          "category": "Contributed",
+          "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.0.0.zip",
+          "archiveFileName": "envirodiyatmegaboards-2.0.0.zip",
+          "checksum": "SHA-256:133a6c0a25f1f7d7bed3a23e936ce1f149e7aeb4becc32fb2f0f5ef398ca93e3",
+          "size": 41794,
+          "boards": [
+            {
+              "name": "EnviroDIY Mayfly 1284p"
             }
           ],
           "toolsDependencies": []

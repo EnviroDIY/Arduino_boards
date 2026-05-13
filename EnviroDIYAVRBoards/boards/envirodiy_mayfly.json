@@ -1,16 +1,15 @@
 {
+  "name": "EnviroDIY Mayfly",
+  "url": "http://envirodiy.org/forums/",
+  "vendor": "EnviroDIY",
+  "frameworks": ["arduino"],
   "build": {
     "core": "arduino",
-    "extra_flags": "-DARDUINO_AVR_ENVIRODIY_MAYFLY",
+    "extra_flags": ["-D__ATMEGA1284p__", "-DENVIRODIY_MAYFLY", "-DSD_CHIP_SELECT_MODE=1"],
     "f_cpu": "8000000L",
     "mcu": "atmega1284p",
     "variant": "mayfly"
   },
-  "debug": {
-    "simavr_target": "atmega1284p"
-  },
-  "frameworks": ["arduino"],
-  "name": "EnviroDIY Mayfly",
   "upload": {
     "maximum_ram_size": 16384,
     "maximum_size": 130048,
@@ -18,6 +17,7 @@
     "require_upload_port": true,
     "speed": 57600
   },
-  "url": "http://envirodiy.org/forums/",
-  "vendor": "EnviroDIY"
+  "debug": {
+    "simavr_target": "atmega1284p"
+  }
 }
