@@ -71,3 +71,4 @@ deploy_key
 id_rsa.pub
 id_rsa
 id_rsa.enc
+sync.ffs_db
