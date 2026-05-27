@@ -59,25 +59,6 @@
           "toolsDependencies": []
         },
         {
-          "name": "EnviroDIY ATmega Boards",
-          "architecture": "avr",
-          "version": "2.1.0",
-          "category": "Contributed",
-          "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.1.0.zip",
-          "archiveFileName": "envirodiyatmegaboards-2.1.0.zip",
-          "checksum": "SHA-256:4cf1983898eef4740b6db64c10229dcf00ec7b4b22e3da5b915f07b7dde24fe9",
-          "size": 47286,
-          "boards": [
-            {
-              "name": "mayfly"
-            },
-            {
-              "name": "mayfly2"
-            }
-          ],
-          "toolsDependencies": []
-        },
-        {
           "name": "EnviroDIY SAMD Boards",
           "architecture": "samd",
           "version": "0.0.1",
@@ -164,11 +145,30 @@
           "category": "Contributed",
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.0.zip",
           "archiveFileName": "envirodiysamdboards-0.4.0.zip",
-          "checksum": "SHA-256:92833477b3d8ebaed6879fea866fcf8a37870ac414c21c34109831632d31f374",
+          "checksum": "SHA-256:db2d164de0534b045b10533951e65cf3f2fe9f7902c7112b3ea16f4dd498e4f1",
           "size": 132548,
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
+            }
+          ],
+          "toolsDependencies": []
+        },
+        {
+          "name": "EnviroDIY ATmega Boards",
+          "architecture": "avr",
+          "version": "2.1.0",
+          "category": "Contributed",
+          "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.1.0.zip",
+          "archiveFileName": "envirodiyatmegaboards-2.1.0.zip",
+          "checksum": "SHA-256:be9efd476a0ab6e1367c63d048fcbdaf0f70370b2dcafdcfb2dc133c1dec83ad",
+          "size": 47285,
+          "boards": [
+            {
+              "name": "mayfly"
+            },
+            {
+              "name": "mayfly2"
             }
           ],
           "toolsDependencies": []
