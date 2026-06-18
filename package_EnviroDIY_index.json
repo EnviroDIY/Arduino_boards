@@ -19,7 +19,7 @@
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.1.2.zip",
           "archiveFileName": "envirodiyatmegaboards-2.1.2.zip",
-          "checksum": "SHA-256:451fbf231a732010c2541531d2c36e27dbcaf3ac9248f3b091c60c471cd86aab",
+          "checksum": "SHA-256:e6cab527c8ad67e12aa9b4dbfff4b238dd8d5844e5b3e58681cc94812d858ff2",
           "size": "47319",
           "boards": [
             {
@@ -36,7 +36,7 @@
           "architecture": "avr",
           "version": "2.1.1",
           "category": "Contributed",
-"help": {
+          "help": {
             "online": "https://www.envirodiy.org/help/"
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.1.1.zip",
@@ -58,7 +58,7 @@
           "architecture": "avr",
           "version": "2.1.0",
           "category": "Contributed",
-"help": {
+          "help": {
             "online": "https://www.envirodiy.org/help/"
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.1.0.zip",
@@ -129,7 +129,7 @@
           "architecture": "samd",
           "version": "0.4.2",
           "category": "Contributed",
-"help": {
+          "help": {
             "online": "https://www.envirodiy.org/help/"
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.2.zip",
@@ -153,7 +153,8 @@
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.2-DEV.zip",
           "archiveFileName": "envirodiysamdboards-0.4.2-DEV.zip",
-          "size": "253552",
+          "checksum": "SHA-256:7d384796696b83e5994ac5fa08a0fdabc2182f96f71428749a9e98387455fdbc",
+          "size": "253546",
           "boards": [
             {
               "name": "EnviroDIY Stonefly v0.3.7 beta"
@@ -169,7 +170,7 @@
           "architecture": "samd",
           "version": "0.4.1",
           "category": "Contributed",
-"help": {
+          "help": {
             "online": "https://www.envirodiy.org/help/"
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.1.zip",
@@ -188,7 +189,7 @@
           "architecture": "samd",
           "version": "0.4.0",
           "category": "Contributed",
-"help": {
+          "help": {
             "online": "https://www.envirodiy.org/help/"
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.0.zip",
@@ -207,7 +208,7 @@
           "architecture": "samd",
           "version": "0.3.7",
           "category": "Contributed",
-"help": {
+          "help": {
             "online": "https://www.envirodiy.org/help/"
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.3.7.zip",
@@ -226,7 +227,7 @@
           "architecture": "samd",
           "version": "0.0.4",
           "category": "Contributed",
-"help": {
+          "help": {
             "online": "https://www.envirodiy.org/help/"
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.0.4.zip",
@@ -245,7 +246,7 @@
           "architecture": "samd",
           "version": "0.0.3",
           "category": "Contributed",
-"help": {
+          "help": {
             "online": "https://www.envirodiy.org/help/"
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.0.3.zip",
@@ -264,7 +265,7 @@
           "architecture": "samd",
           "version": "0.0.2",
           "category": "Contributed",
-"help": {
+          "help": {
             "online": "https://www.envirodiy.org/help/"
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.0.2.zip",
@@ -283,7 +284,7 @@
           "architecture": "samd",
           "version": "0.0.1",
           "category": "Contributed",
-"help": {
+          "help": {
             "online": "https://www.envirodiy.org/help/"
           },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.0.1.zip",
