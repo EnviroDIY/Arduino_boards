@@ -14,10 +14,13 @@
           "architecture": "avr",
           "version": "2.1.2",
           "category": "Contributed",
+          "help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.1.2.zip",
           "archiveFileName": "envirodiyatmegaboards-2.1.2.zip",
           "checksum": "SHA-256:451fbf231a732010c2541531d2c36e27dbcaf3ac9248f3b091c60c471cd86aab",
-          "size": 47319,
+          "size": "47319",
           "boards": [
             {
               "name": "mayfly"
@@ -33,10 +36,13 @@
           "architecture": "avr",
           "version": "2.1.1",
           "category": "Contributed",
+"help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.1.1.zip",
           "archiveFileName": "envirodiyatmegaboards-2.1.1.zip",
           "checksum": "SHA-256:8697197232d8ad051ecb19feda6991e6259811c17b705b80779c7bfcbe26a719",
-          "size": 47270,
+          "size": "47270",
           "boards": [
             {
               "name": "mayfly"
@@ -52,10 +58,13 @@
           "architecture": "avr",
           "version": "2.1.0",
           "category": "Contributed",
+"help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.1.0.zip",
           "archiveFileName": "envirodiyatmegaboards-2.1.0.zip",
           "checksum": "SHA-256:be9efd476a0ab6e1367c63d048fcbdaf0f70370b2dcafdcfb2dc133c1dec83ad",
-          "size": 47285,
+          "size": "47285",
           "boards": [
             {
               "name": "mayfly"
@@ -120,10 +129,13 @@
           "architecture": "samd",
           "version": "0.4.2",
           "category": "Contributed",
+"help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.2.zip",
           "archiveFileName": "envirodiysamdboards-0.4.2.zip",
           "checksum": "SHA-256:2c77ce007d7f734bfc5d878ff3b5373f020ca480fd504528f299ee4844bc97d6",
-          "size": 132548,
+          "size": "132548",
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
@@ -134,12 +146,14 @@
         {
           "name": "EnviroDIY SAMD Boards",
           "architecture": "samd",
-          "version": "0.4.2DEV",
+          "version": "0.4.2-DEV",
           "category": "Contributed",
-          "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.2DEV.zip",
-          "archiveFileName": "envirodiysamdboards-0.4.2DEV.zip",
-          "checksum": "SHA-256:d89ceef929da2bd93e65cae5f2c5ea377204ea8adf81663c1c0eef4a361b3c6d",
-          "size": 253516,
+          "help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
+          "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.2-DEV.zip",
+          "archiveFileName": "envirodiysamdboards-0.4.2-DEV.zip",
+          "size": "253552",
           "boards": [
             {
               "name": "EnviroDIY Stonefly v0.3.7 beta"
@@ -155,10 +169,13 @@
           "architecture": "samd",
           "version": "0.4.1",
           "category": "Contributed",
+"help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.1.zip",
           "archiveFileName": "envirodiysamdboards-0.4.1.zip",
           "checksum": "SHA-256:8e2e8880d953059079db99f27a54aa86722bdf2a602c4fb827db90407c423229",
-          "size": 132539,
+          "size": "132539",
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
@@ -171,10 +188,13 @@
           "architecture": "samd",
           "version": "0.4.0",
           "category": "Contributed",
+"help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.0.zip",
           "archiveFileName": "envirodiysamdboards-0.4.0.zip",
           "checksum": "SHA-256:db2d164de0534b045b10533951e65cf3f2fe9f7902c7112b3ea16f4dd498e4f1",
-          "size": 132548,
+          "size": "132548",
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
@@ -187,10 +207,13 @@
           "architecture": "samd",
           "version": "0.3.7",
           "category": "Contributed",
+"help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.3.7.zip",
           "archiveFileName": "envirodiysamdboards-0.3.7.zip",
           "checksum": "SHA-256:c3e4e2befe75c6aa7fa8da0f3f7324b4e0bb9eef0bf82fc0410b037f5523b471",
-          "size": 132131,
+          "size": "132131",
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
@@ -203,10 +226,13 @@
           "architecture": "samd",
           "version": "0.0.4",
           "category": "Contributed",
+"help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.0.4.zip",
           "archiveFileName": "envirodiysamdboards-0.0.4.zip",
           "checksum": "SHA-256:52c8879c306a4358db6f1e7921ba376417d5df5d1b7862c37c941cac0e734d89",
-          "size": 130408,
+          "size": "130408",
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
@@ -219,10 +245,13 @@
           "architecture": "samd",
           "version": "0.0.3",
           "category": "Contributed",
+"help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.0.3.zip",
           "archiveFileName": "stonefly_m4-0.0.3.zip",
           "checksum": "SHA-256:06e25de45bf76a249986ddbaf227ab8f2b39d532a2ec5f8d20b4c2218f613fd4",
-          "size": 128057,
+          "size": "128057",
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
@@ -235,10 +264,13 @@
           "architecture": "samd",
           "version": "0.0.2",
           "category": "Contributed",
+"help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.0.2.zip",
           "archiveFileName": "envirodiysamdboards-0.0.2.zip",
           "checksum": "SHA-256:3b4c91590a97f2211240901dc84073d21c0e0ede711b18bbb1ab0aad32a15494",
-          "size": 128015,
+          "size": "128015",
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
@@ -251,10 +283,13 @@
           "architecture": "samd",
           "version": "0.0.1",
           "category": "Contributed",
+"help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.0.1.zip",
           "archiveFileName": "envirodiysamdboards-0.0.1.zip",
           "checksum": "SHA-256:3f14634b05eb42f749df3b6c7f72a0f947c83a8b50101200ef859dc1ed77ff41",
-          "size": 409507,
+          "size": "409507",
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
