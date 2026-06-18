@@ -16,8 +16,8 @@
           "category": "Contributed",
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYAVRBoards/envirodiyatmegaboards-2.1.2.zip",
           "archiveFileName": "envirodiyatmegaboards-2.1.2.zip",
-          "checksum": "SHA-256:a1e203b923966ed7a8c909436e24826fcd96007e448148ba07a997f82ec5d1bd",
-          "size": 47321,
+          "checksum": "SHA-256:451fbf231a732010c2541531d2c36e27dbcaf3ac9248f3b091c60c471cd86aab",
+          "size": 47319,
           "boards": [
             {
               "name": "mayfly"
@@ -122,11 +122,30 @@
           "category": "Contributed",
           "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.2.zip",
           "archiveFileName": "envirodiysamdboards-0.4.2.zip",
-          "checksum": "SHA-256:1619f956715781cca6a82cb1f9c27d1aab7482060d9699636091165c3033ba0d",
-          "size": 132554,
+          "checksum": "SHA-256:2c77ce007d7f734bfc5d878ff3b5373f020ca480fd504528f299ee4844bc97d6",
+          "size": 132548,
           "boards": [
             {
               "name": "EnviroDIY Stonefly"
+            }
+          ],
+          "toolsDependencies": []
+        },
+        {
+          "name": "EnviroDIY SAMD Boards",
+          "architecture": "samd",
+          "version": "0.4.2DEV",
+          "category": "Contributed",
+          "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-0.4.2DEV.zip",
+          "archiveFileName": "envirodiysamdboards-0.4.2DEV.zip",
+          "checksum": "SHA-256:d89ceef929da2bd93e65cae5f2c5ea377204ea8adf81663c1c0eef4a361b3c6d",
+          "size": 253516,
+          "boards": [
+            {
+              "name": "EnviroDIY Stonefly v0.3.7 beta"
+            },
+            {
+              "name": "EnviroDIY Stonefly v0.2 beta"
             }
           ],
           "toolsDependencies": []
