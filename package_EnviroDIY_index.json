@@ -149,6 +149,25 @@
         {
           "name": "EnviroDIY SAMD Boards",
           "architecture": "samd",
+          "version": "1.0.0",
+          "category": "Contributed",
+          "help": {
+            "online": "https://www.envirodiy.org/help/"
+          },
+          "url": "https://github.com/EnviroDIY/Arduino_boards/raw/master/EnviroDIYSAMDBoards/envirodiysamdboards-1.0.0.zip",
+          "archiveFileName": "envirodiysamdboards-1.0.0.zip",
+          "checksum": "SHA-256:233288e742c0b37f0f2432acdbcf2325568838b536e4e43b08b5fd2334e6401a",
+          "size": "132967",
+          "boards": [
+            {
+              "name": "EnviroDIY Stonefly"
+            }
+          ],
+          "toolsDependencies": []
+        },
+        {
+          "name": "EnviroDIY SAMD Boards",
+          "architecture": "samd",
           "version": "0.4.2",
           "category": "Contributed",
           "help": {
